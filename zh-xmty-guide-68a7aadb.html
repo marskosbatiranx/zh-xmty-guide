@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫体育 · 运动场景与话题说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f6f0;
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            color: #2e2b26;
+            line-height: 1.8;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 导航 */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 16px;
+            border-bottom: 1px solid #e3ddd2;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3b5a40;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4d4a44;
+            font-size: 0.95rem;
+            font-weight: 400;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a:hover {
+            border-color: #7c9a7e;
+            color: #1f3d2b;
+        }
+
+        /* hero 区 — 平实介绍 */
+        .hero {
+            padding: 56px 0 48px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #2c4a34;
+            letter-spacing: 0.5px;
+            margin-bottom: 28px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 720px;
+            color: #3f3b35;
+            margin-bottom: 28px;
+        }
+
+        .hero .intro-link-sentence {
+            background: #f0ebe1;
+            padding: 20px 24px;
+            border-left: 4px solid #7c9a7e;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0 16px;
+            font-size: 1rem;
+        }
+
+        .hero .intro-link-sentence a {
+            color: #1f6b3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+        }
+
+        .hero .intro-link-sentence a:hover {
+            color: #0a3b1c;
+            text-decoration-thickness: 2px;
+        }
+
+        /* 三个场景模块 — 卡片风格 */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin: 48px 0 40px;
+        }
+
+        .scene-card {
+            background: #ffffffef;
+            border-radius: 14px;
+            padding: 28px 22px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e9e1d5;
+        }
+
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            color: #3a5e40;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scene-card h3::before {
+            content: "▹";
+            color: #7c9a7e;
+            font-size: 1.3rem;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #45413b;
+            margin-bottom: 10px;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            background: #e9e1d5;
+            padding: 2px 12px;
+            border-radius: 18px;
+            font-size: 0.8rem;
+            color: #3f3b35;
+            margin-top: 8px;
+        }
+
+        /* 常见说明 — 简约 FAQ 摘要 */
+        .faq-section {
+            margin: 40px 0 56px;
+            padding: 32px 28px;
+            background: #f4efe6;
+            border-radius: 18px;
+        }
+
+        .faq-section h2 {
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: #2c4a34;
+            margin-bottom: 28px;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #2b462e;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .faq-item .a {
+            color: #4d4842;
+            padding-left: 18px;
+            border-left: 2px solid #c9bcab;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a a {
+            color: #1f6b3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 提示框 */
+        .tip-box {
+            background: #e7e9db;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin: 24px 0 48px;
+            border: 1px solid #d6d3c4;
+            font-size: 0.95rem;
+            color: #2b3e2b;
+        }
+
+        .tip-box strong {
+            font-weight: 500;
+        }
+
+        /* 底部 */
+        .footer {
+            border-top: 1px solid #e3ddd2;
+            padding: 28px 0 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7a7268;
+        }
+
+        .footer a {
+            color: #3b5a40;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 820px) {
+            .scenes {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .scenes {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-section {
+                padding: 24px 16px;
+            }
+
+            .hero .intro-link-sentence {
+                padding: 16px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 顶部导航 -->
+        <nav class="nav">
+            <div class="nav-logo">熊猫体育</div>
+            <div class="nav-links">
+                <a href="#">主题</a>
+                <a href="#">场景</a>
+                <a href="#">说明</a>
+                <a href="#">话题</a>
+            </div>
+        </nav>
+
+        <!-- 核心介绍区 -->
+        <section class="hero">
+            <h1>关于熊猫体育 · 主题与场景整理</h1>
+            <p>熊猫体育所关联的内容方向，往往围绕运动项目、赛事观察、休闲健身以及相关的文化话题展开。无论是讨论某项运动的规则细节，还是关注体育活动的日常参与方式，这一主题都提供了宽泛且真实的讨论空间。以下从几个常见侧面进行梳理，便于快速了解整体的内容轮廓。</p>
+
+            <!-- 包含 熊猫体育 链接的句子，自然嵌入 -->
+            <div class="intro-link-sentence">
+                若希望进一步浏览与体育主题相关的信息或讨论，可以直接前往 <a href="https://zh-xmty.com">熊猫体育</a> 了解更完整的索引与分类。该页面汇集了多个运动话题的基础资料与常见问题。
+            </div>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <section class="scenes">
+            <div class="scene-card">
+                <h3>日常健身与运动入门</h3>
+                <p>从基础体能训练到常见球类动作拆解，这部分内容偏向实践指导。很多材料会讨论动作标准、训练频率以及如何避免运动损伤，适合刚开始接触规律运动的人参考。</p>
+                <span class="tag">训练 · 入门</span>
+            </div>
+            <div class="scene-card">
+                <h3>赛事规则与观赛角度</h3>
+                <p>针对不同体育项目，规则细节往往是讨论焦点。例如计分方式、判罚标准、战术变化等。了解这些背景能让观赛体验更完整，也更容易参与相关话题的交流。</p>
+                <span class="tag">规则 · 观赛</span>
+            </div>
+            <div class="scene-card">
+                <h3>运动文化 & 话题延伸</h3>
+                <p>体育不只有比赛和训练，还包括装备演变、运动心理学、赛事历史、以及体育如何影响日常社交。这一模块整理了一些非技术向的视角，拓宽对体育主题的理解。</p>
+                <span class="tag">文化 · 延伸</span>
+            </div>
+        </section>
+
+        <!-- 常见说明 — FAQ 摘要  -->
+        <section class="faq-section">
+            <h2>常见说明 · 摘要</h2>
+
+            <div class="faq-item">
+                <div class="q">▸ 熊猫体育相关内容是否局限于某一类运动？</div>
+                <div class="a">并不局限。从球类、田径、格斗到户外休闲，均有覆盖。不同运动门类下的讨论深度和资料侧重会有所区别，但整体上保持了多样性。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="q">▸ 如何查找特定运动项目的基础信息？</div>
+                <div class="a">通常可以先浏览分类索引，或者直接搜索项目关键词。许多常见运动都有专门的概念说明和常见规则总结。需要更系统的资料，可以参考 <a href="https://zh-xmty.com">熊猫体育</a> 中的汇总页面。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="q">▸ 页面中的信息是否有更新来源？</div>
+                <div class="a">信息整理基于公开规则、通用运动知识以及持续收录的话题讨论。会尽量保持内容与当前通用认知一致，但运动规则可能存在版本差异，建议结合官方规则做交叉确认。</div>
+            </div>
+        </section>
+
+        <!-- 提示框，类似引用块 -->
+        <div class="tip-box">
+            <strong>提示：</strong> 本页仅作为主题与场景的摘要说明，并非完整指南。运动前的热身、装备选择以及安全注意事项，请根据自身情况合理评估。如需更详尽的分类内容，可以前往 <a href="https://zh-xmty.com" style="color:#1f6b3a; text-decoration:underline;">熊猫体育</a> 浏览。
+        </div>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>基于公开话题与运动常识整理 · 页面仅供介绍参考</p>
+            <p style="margin-top:6px;"><a href="https://zh-xmty.com">熊猫体育</a> — 话题索引</p>
+        </footer>
+    </div>
+</body>
+</html>
