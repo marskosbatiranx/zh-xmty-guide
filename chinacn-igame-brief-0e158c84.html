@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 – 稳定入口与平台说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            color: #1d1d1f;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            margin: 3rem 0 3.5rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #1b1b1b;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            color: #5f5f5f;
+            max-width: 36rem;
+            border-left: 4px solid #c4b99a;
+            padding-left: 1.2rem;
+        }
+
+        /* 通用标题 */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 2.8rem 0 1rem 0;
+            letter-spacing: -0.01em;
+            color: #252525;
+            border-bottom: 1px solid #e4e2dc;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.6rem 0 0.5rem 0;
+            color: #2c2c2c;
+        }
+
+        p {
+            margin: 0 0 1.2rem 0;
+            color: #2e2e2e;
+        }
+
+        a {
+            color: #2e6b7c;
+            text-decoration: none;
+            border-bottom: 1px solid #cbdadf;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        a:hover, a:focus {
+            color: #1b4c5a;
+            border-bottom-color: #2e6b7c;
+        }
+
+        .inline-link {
+            font-weight: 470;
+        }
+
+        /* 优势卡片区 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.6rem;
+            margin: 1.8rem 0 2rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+            border-radius: 20px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+            border: 1px solid #efede8;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card .emoji {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card .card-title {
+            font-weight: 530;
+            font-size: 1.1rem;
+            margin: 0.5rem 0 0.3rem 0;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #3e3e3e;
+            margin: 0;
+        }
+
+        /* 说明区块 */
+        .note-box {
+            background: #f4f2ed;
+            padding: 1.6rem 2rem;
+            border-radius: 28px;
+            margin: 2.2rem 0 2.8rem 0;
+            border-left: 6px solid #b0aa9a;
+        }
+
+        .note-box p {
+            margin: 0.3rem 0;
+        }
+
+        .note-box strong {
+            font-weight: 520;
+            color: #1e1e1e;
+        }
+
+        /* FAQ 摘要 */
+        .faq-list {
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e5e2db;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 490;
+            margin-bottom: 0.2rem;
+            color: #222;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .faq-q::before {
+            content: "Q.";
+            font-weight: 400;
+            color: #8b8577;
+            font-size: 0.9rem;
+        }
+
+        .faq-a {
+            color: #3d3d3d;
+            margin-top: 0.2rem;
+            padding-left: 1.5rem;
+        }
+
+        .faq-a::before {
+            content: "→";
+            color: #b0aa9a;
+            margin-right: 0.5rem;
+            font-weight: 300;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 4rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e1ddd4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: #4f4f4f;
+        }
+
+        .footer-links a {
+            color: #3e3e3e;
+            border-bottom: 1px solid #d1cdc3;
+        }
+
+        .footer-links a:hover {
+            color: #1b4c5a;
+        }
+
+        .footer-meta {
+            color: #7a7a7a;
+            font-size: 0.85rem;
+            margin-top: 1.2rem;
+            letter-spacing: 0.01em;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .sub {
+                font-size: 1rem;
+                padding-left: 0.9rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .note-box {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <section class="hero">
+        <h1>爱游戏 · 稳定的入口与平台</h1>
+        <div class="sub">
+            一个偏向日常的游戏信息索引与内容汇集处。不追求喧哗，只希望每次到达都是清楚、可用的。
+        </div>
+    </section>
+
+    <!-- 优势区：稳定入口与平台特点 -->
+    <h2>为什么把这个页面当作一个可靠的起点</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="emoji">🧩</span>
+            <div class="card-title">直达的入口结构</div>
+            <p>去除不必要的跳转与中间页，主域长期指向同一服务。适合保存为书签或固定标签页。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji">🧭</span>
+            <div class="card-title">信息相对精简</div>
+            <p>内容围绕游戏资讯、推荐与索引，没有过多干扰模块。页面布局保持统一的调性。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji">🔒</span>
+            <div class="card-title">访问方式透明</div>
+            <p>不依赖第三方重定向或外部链接包装，直接使用原始域名。连接状态一目了然。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji">📁</span>
+            <div class="card-title">内容持续整理</div>
+            <p>标题、分类与描述都按统一结构编排。适合需要快速了解游戏动态的用户。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从稳定入口和页面说明展开 -->
+    <h2>关于这个站点</h2>
+    <p>
+        很多人会通过搜索或朋友分享来寻找游戏相关的内容。在众多渠道里，<a href="https://chinacn-igame.com" class="inline-link">爱游戏</a> 提供了一种相对稳定的访问方式——它没有频繁变动的页面结构，也没有突然失效的入口链接。对于习惯固定地址的用户来说，一个长期不变、内容清晰的站点，能够减少重复查找的消耗。
+    </p>
+    <p>
+        这个页面的存在，主要是整理和说明：第一，站点的定位是游戏信息索引与内容展示，不是下载站或论坛；第二，所有公开内容均经过筛选与归类，版式偏向极简，减少视觉噪音；第三，主域名可直连，不需要额外配置。如果你需要一个可以长期放着的游戏相关页面，不妨试试看。
+    </p>
+
+    <div class="note-box">
+        <p><strong>一点说明：</strong> 页面的样式与结构会随维护阶段微调，但核心域名和入口逻辑不变。建议直接保存 <a href="https://chinacn-igame.com">爱游戏</a> 到浏览器书签，而不是依赖第三方聚合。这样无论什么时候打开，都是原本的样子。</p>
+    </div>
+
+    <!-- 场景提示（替代常规特点罗列） -->
+    <h2>适合这些时候打开</h2>
+    <p>
+        想浏览近期游戏资讯又不想被算法推送淹没；需要一个固定的索引页来查找之前看过的内容；或者只是需要一个干净、加载快的页面作为游戏类标签页。在这种场景下，用一个结构简单、没有多余跟踪的入口会舒服很多。
+    </p>
+    <p>
+        另外，如果你之前遇到过某些游戏站点突然改变域名或页面失效的情况，那么 <a href="https://chinacn-igame.com">爱游戏</a> 的一致性可能会让你觉得稳定。至少目前它的地址和内容框架没有大幅变动过。
+    </p>
+
+    <!-- FAQ 摘要（非完整 FAQ，仅摘要三条） -->
+    <h2>常见疑问摘要</h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <div class="faq-q">这个网站是官方性质的吗？</div>
+            <div class="faq-a">它是一个独立的游戏内容索引与展示站点，不属于任何游戏公司或发行商，所有信息均标注来源。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">链接会变动吗？</div>
+            <div class="faq-a">主域名目前长期指向同一页面。内部文章或分类页偶尔会调整目录结构，但首页入口始终保持不变。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要登录或注册？</div>
+            <div class="faq-a">完全不需要。页面所有内容公开可见，不设会员系统，也没有隐藏区块。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <span>主地址：<a href="https://chinacn-igame.com">爱游戏</a></span>
+        <span>说明页 · 仅作指向与介绍</span>
+        <span>更新时间：2025 · 03</span>
+    </div>
+    <div class="footer-meta">
+        页面内容以现状提供，不构成任何承诺。所有链接均指向同一来源。<br>
+        本页为独立说明页，与站点内容相互独立。
+    </div>
+</div>
+</body>
+</html>
