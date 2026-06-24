@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>爱游戏 · 资讯与服务平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f4f9fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      color: #1e2f3e;
+      padding: 20px 16px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* 英雄区 — 杂志专题横幅 */
+    .hero {
+      background: linear-gradient(148deg, #184c5e 0%, #206d7a 55%, #3f9e9b 100%);
+      border-radius: 32px 32px 28px 28px;
+      padding: 48px 30px 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 12px 28px -8px rgba(20, 75, 85, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -20px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(100, 210, 200, 0.13) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .sub {
+      color: #c9ece8;
+      font-size: 1.1rem;
+      font-weight: 400;
+      background: rgba(0, 0, 0, 0.08);
+      display: inline-block;
+      padding: 6px 20px 7px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      margin-top: 2px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .sub i {
+      font-style: normal;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    /* 背景说明卡片 */
+    .bg-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 30px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 14px rgba(0, 30, 40, 0.04);
+      border: 1px solid #ddeff2;
+      position: relative;
+    }
+
+    .bg-card::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20px;
+      bottom: 20px;
+      width: 5px;
+      background: #3baaa7;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .bg-card h2 {
+      font-size: 1.7rem;
+      color: #1f5562;
+      margin-bottom: 14px;
+      font-weight: 550;
+    }
+
+    .bg-card p {
+      font-size: 1.05rem;
+      color: #2b4251;
+      margin-bottom: 16px;
+      max-width: 86%;
+    }
+
+    .bg-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bg-card a {
+      color: #177b7e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: #3baaa7;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .bg-card a:hover {
+      color: #0b4f52;
+    }
+
+    /* 网格卡片区 — 三段自然介绍 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card-item {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 22px 30px;
+      box-shadow: 0 2px 12px rgba(30, 60, 70, 0.04);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid #dff1f2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px -6px rgba(30, 78, 85, 0.12);
+      border-color: #b4deda;
+    }
+
+    .card-item .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1;
+      color: #348e8b;
+    }
+
+    .card-item h3 {
+      font-size: 1.35rem;
+      font-weight: 540;
+      color: #124c55;
+      margin-bottom: 10px;
+      border-left: 4px solid #48b3ae;
+      padding-left: 12px;
+    }
+
+    .card-item p {
+      font-size: 0.98rem;
+      color: #314e5a;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+
+    .card-item .meta-tag {
+      display: inline-block;
+      background: #e1f2f2;
+      color: #1b6c6e;
+      font-size: 0.75rem;
+      padding: 3px 14px;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-top: 6px;
+    }
+
+    /* 提示区域 — 页尾访问提示，杂志风格 */
+    .footer-note {
+      background: #eaf5f4;
+      border-radius: 40px 40px 28px 28px;
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #c9e3e1;
+      margin-top: 8px;
+    }
+
+    .footer-note .left {
+      max-width: 580px;
+    }
+
+    .footer-note .left h4 {
+      font-size: 1.4rem;
+      font-weight: 540;
+      color: #124c55;
+      margin-bottom: 6px;
+    }
+
+    .footer-note .left p {
+      font-size: 1rem;
+      color: #2b5a5e;
+      line-height: 1.6;
+    }
+
+    .footer-note .left a {
+      color: #146f70;
+      font-weight: 540;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: #4aafab;
+    }
+
+    .footer-note .right-badge {
+      background: #ffffff;
+      border-radius: 50px;
+      padding: 10px 20px 10px 24px;
+      box-shadow: 0 2px 10px rgba(25, 70, 80, 0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #b7dbd6;
+      margin-top: 6px;
+    }
+
+    .footer-note .right-badge span {
+      font-size: 0.9rem;
+      color: #135f62;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note .right-badge .dash {
+      color: #7bb6b2;
+      margin: 0 4px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 860px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .bg-card p {
+        max-width: 100%;
+      }
+
+      .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+
+      .footer-note {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .footer-note .right-badge {
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 580px) {
+      body {
+        padding: 14px 12px 30px;
+      }
+
+      .hero {
+        padding: 32px 20px 28px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero .sub {
+        font-size: 0.98rem;
+      }
+
+      .bg-card {
+        padding: 24px 18px;
+        border-radius: 24px;
+      }
+
+      .bg-card h2 {
+        font-size: 1.4rem;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .card-item {
+        padding: 22px 18px;
+      }
+
+      .footer-note {
+        padding: 28px 18px 24px;
+        border-radius: 28px;
+      }
+
+      .footer-note .left h4 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* 细节点缀 */
+    .accent-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #42b3ae;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .faq-mini {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      background: #f1faf9;
+      padding: 10px 18px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 杂志专题横幅 hero -->
+    <header class="hero">
+      <h1>爱游戏 · 专题</h1>
+      <div class="sub"><i>✦</i> 稳定入口 · 内容脉络</div>
+    </header>
+
+    <!-- 背景说明：站点定位与上下文 -->
+    <section class="bg-card">
+      <h2>从入口到内容生态</h2>
+      <p>
+        在信息纷杂的当下，一个可靠、持续更新的游戏内容站点显得尤为重要。
+        <a href="https://chinaigame.com">爱游戏</a> 从创立之初便专注于为玩家与从业者提供有深度的资讯、评测与文化记录。它并非一个单纯的索引页，而是一个经过筛选的内容聚合与原创平台。
+      </p>
+      <p>
+        站内内容覆盖独立游戏、经典重访、开发访谈以及行业观察，每一篇文章都在尝试拆解游戏之所以迷人的结构。这种偏知识型的叙事风格，使得站点成为许多读者每周必定打开的固定标签页。
+      </p>
+    </section>
+
+    <!-- 三段自然介绍 — 网格卡片，蓝绿点缀 -->
+    <div class="grid-cards">
+      <article class="card-item">
+        <span class="card-icon">📰</span>
+        <h3>原创·评测</h3>
+        <p>
+          每篇评测围绕游戏机制与叙事语言展开，不堆砌术语，不浮于表面。从关卡设计到音乐氛围，提供可被验证的体验描述。近一年已发布超过九十篇深度文章。
+        </p>
+        <span class="meta-tag">稳定更新</span>
+      </article>
+
+      <article class="card-item">
+        <span class="card-icon">🧩</span>
+        <h3>专栏·视野</h3>
+        <p>
+          邀请开发者、学者与资深玩家撰写专栏：从像素美术演变到游戏化学习，不拘泥于热门话题。每期专栏均附参考文献或游戏清单，适合延伸阅读。
+        </p>
+        <span class="meta-tag">多元视角</span>
+      </article>
+
+      <article class="card-item">
+        <span class="card-icon">📚</span>
+        <h3>档案·专题</h3>
+        <p>
+          不定期推出系列专题：例如「日本街机黄金年代」、「叙事冒险三十年」等。通过资料整理与一手访谈，搭建有据可查的游戏文化档案。
+        </p>
+        <span class="meta-tag">知识沉淀</span>
+      </article>
+    </div>
+
+    <!-- 页尾访问提示 ＋ FAQ 摘要风格 -->
+    <footer class="footer-note">
+      <div class="left">
+        <h4>持续更新的内容站点</h4>
+        <p>
+          如果你热衷系统性地了解游戏文化、机制或产业动态，
+          <a href="https://chinaigame.com">爱游戏</a> 是一个可以常驻的阅读角落。
+          页面没有弹窗广告，所有文章均采用人文视角，不追逐短期流量。
+        </p>
+        <!-- 内嵌 FAQ 摘要风格  -->
+        <div class="faq-mini">
+          <span class="accent-dot"></span> 常见疑问：内容多久更新？通常每周 3–5 篇；是否接受投稿？可通过站内联系页了解。
+        </div>
+      </div>
+      <div class="right-badge">
+        <span>chinaigame.com</span>
+        <span class="dash">—</span>
+        <span>杂志专题</span>
+      </div>
+    </footer>
+
+    <!-- 附加说明：页面生成于杂志专题构思，无追踪 -->
+  </div>
+</body>
+</html>
