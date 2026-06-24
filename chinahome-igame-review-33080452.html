@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 信息索引与内容梳理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #fbe9d7 0%, #f8d5b0 45%, #f5c89a 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2f2b26;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .card {
+            background: #fffcf8;
+            border-radius: 48px 48px 32px 32px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 20px 35px -12px rgba(128, 78, 38, 0.25);
+            transition: box-shadow 0.25s ease;
+        }
+        .card:hover {
+            box-shadow: 0 28px 45px -16px rgba(128, 78, 38, 0.35);
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #5f3e28;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #8b5a3c, #b87b54);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #7a6049;
+            margin-bottom: 2rem;
+            border-left: 4px solid #d9b38c;
+            padding-left: 1.2rem;
+        }
+        .section-title {
+            font-weight: 550;
+            font-size: 1.25rem;
+            margin: 2rem 0 0.8rem 0;
+            color: #4c3422;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-title::before {
+            content: "▹";
+            color: #b87b54;
+            font-weight: 700;
+        }
+        .summary {
+            background: #f6eee6;
+            padding: 1.5rem 1.8rem;
+            border-radius: 32px;
+            margin: 1.2rem 0 1.5rem 0;
+            font-size: 1rem;
+            color: #3a2f26;
+        }
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem 1.2rem;
+            margin: 1rem 0 1.8rem 0;
+            list-style: none;
+        }
+        .highlights li {
+            background: #f4ece3;
+            padding: 0.6rem 1.4rem 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-weight: 450;
+            color: #3f2f1f;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .highlights li::before {
+            content: "✦";
+            position: absolute;
+            left: 0.7rem;
+            top: 0.5rem;
+            color: #b87b54;
+            font-size: 0.75rem;
+        }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0 1.8rem 0;
+        }
+        .scenario-item {
+            background: #fbf3eb;
+            padding: 1.2rem 1.2rem 1.2rem 1.6rem;
+            border-radius: 28px;
+            border: 1px solid #eedccb;
+            font-size: 0.95rem;
+        }
+        .scenario-item strong {
+            display: block;
+            color: #6e4e33;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .faq-mini {
+            margin: 1.8rem 0 1rem 0;
+            padding: 1.4rem 1.8rem;
+            background: #f5ede5;
+            border-radius: 36px;
+        }
+        .faq-q {
+            font-weight: 550;
+            font-size: 0.98rem;
+            color: #4f3825;
+            margin-bottom: 0.25rem;
+        }
+        .faq-a {
+            font-size: 0.92rem;
+            color: #54463a;
+            margin-bottom: 0.8rem;
+        }
+        .faq-a:last-of-type {
+            margin-bottom: 0;
+        }
+        .access-note {
+            background: transparent;
+            border: 1.5px dashed #c9aa8b;
+            border-radius: 60px;
+            padding: 1rem 1.8rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #3d322a;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem 0.5rem;
+        }
+        .link-mild {
+            color: #915f3e;
+            text-decoration: none;
+            font-weight: 550;
+            background: #f2e4d8;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            transition: all 0.2s ease;
+            display: inline-block;
+            border: 1px solid transparent;
+        }
+        .link-mild:hover {
+            background: #e5d2bf;
+            border-color: #bf936f;
+            color: #613f27;
+        }
+        .footer-note {
+            margin-top: 1.2rem;
+            font-size: 0.82rem;
+            color: #786b5f;
+            text-align: right;
+            letter-spacing: 0.3px;
+        }
+        hr {
+            margin: 1.8rem 0 1rem 0;
+            border: 0;
+            border-top: 2px solid #e2cfbc;
+            opacity: 0.5;
+        }
+        @media (max-width: 600px) {
+            .card {
+                padding: 2rem 1.3rem;
+                border-radius: 32px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-sub {
+                font-size: 0.95rem;
+                padding-left: 1rem;
+            }
+            .highlights li {
+                font-size: 0.85rem;
+                padding: 0.4rem 1.2rem 0.4rem 1.6rem;
+            }
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            .access-note {
+                flex-direction: column;
+                border-radius: 40px;
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="hero-title">爱游戏</div>
+        <div class="hero-sub">资料整理 · 内容索引 · 信息梳理</div>
+
+        <div class="summary">
+            面向对游戏内容有查阅、归纳与回溯需求的使用者，<strong>爱游戏</strong> 提供了一种围绕游戏资料的轻量组织方式。不同于社交或资讯聚合站点，这里更侧重于将游戏相关的细节、版本记录、设定说明等内容做结构化汇集。通过条目化的梳理，减少信息碎片带来的认知负担，适合用于参考、对比或归档。
+        </div>
+
+        <div class="section-title">内容特点</div>
+        <ul class="highlights">
+            <li>条目化整理，便于定位</li>
+            <li>版本与设定信息分层</li>
+            <li>题材覆盖较广</li>
+            <li>索引结构偏平</li>
+            <li>弱化时效，侧重内容</li>
+        </ul>
+
+        <div class="section-title">适用场景</div>
+        <div class="scenario-grid">
+            <div class="scenario-item">
+                <strong>资料查阅</strong>
+                快速浏览某款游戏的角色、世界观或系统说明，不用在多个页面间跳转。
+            </div>
+            <div class="scenario-item">
+                <strong>内容比照</strong>
+                对同一系列不同版本间的设定或机制差异进行并排参考。
+            </div>
+            <div class="scenario-item">
+                <strong>回顾梳理</strong>
+                作为个人向的备忘或整理辅助，重新了解已接触过的游戏内容。
+            </div>
+        </div>
+
+        <div class="faq-mini">
+            <div class="faq-q">❓ 资料以什么形式呈现？</div>
+            <div class="faq-a">条目多以短说明、列表或摘要形式组织，不包含完整攻略或社区讨论。重点在于信息本身的陈列与归纳。</div>
+            <div class="faq-q">❓ 内容更新频率如何？</div>
+            <div class="faq-a">以阶段性整理为主，并非每日更新。更适合需要稳定参考素材的使用习惯。</div>
+            <div class="faq-q">❓ 是否包含下载或外部资源？</div>
+            <div class="faq-a">页面本身仅为内容索引，不提供文件下载。所有信息均基于已公开的游戏资料进行梳理。</div>
+        </div>
+
+        <hr />
+
+        <div class="access-note">
+            <span>如需了解更完整的资料集合，可浏览</span>
+            <a href="https://chinahome-igame.com" class="link-mild">爱游戏</a>
+            <span>—— 页面中收录了更多分类条目与详细说明。</span>
+        </div>
+
+        <div class="footer-note">
+            基于公开信息整理 · 仅供参考
+        </div>
+    </div>
+</div>
+</body>
+</html>
