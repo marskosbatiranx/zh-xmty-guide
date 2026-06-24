@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 日常中的游戏与故事</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f2f2;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: #2a2a2a;
+      padding: 3rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    /* 卡片容器 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaeaea;
+      padding: 2.4rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:last-child {
+      margin-bottom: 0;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 文章标题 */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #666;
+      border-left: 3px solid #bfbfbf;
+      padding-left: 1rem;
+      margin-bottom: 1.6rem;
+      font-weight: 400;
+    }
+
+    /* 正文段落 */
+    p {
+      margin-bottom: 1.3rem;
+      font-size: 1rem;
+      color: #2f2f2f;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* 引用 / 提示块 */
+    .pull-quote {
+      background: #f8f8fa;
+      border-radius: 14px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0;
+      border-left: 4px solid #9c9c9c;
+      font-size: 0.98rem;
+      color: #3a3a3a;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .pull-quote strong {
+      font-weight: 600;
+      color: #1e1e1e;
+    }
+
+    .pull-quote em {
+      font-style: italic;
+      color: #555;
+    }
+
+    /* 访问句 / 嵌入式链接区 */
+    .visit-line {
+      background: #f4f4f6;
+      border-radius: 30px;
+      padding: 1rem 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+      display: inline-block;
+      font-size: 0.98rem;
+      border: 1px solid #e0e0e0;
+    }
+
+    a {
+      color: #2c6b9e;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      border-bottom: 1px solid #2c6b9e;
+      color: #1a4e7a;
+    }
+
+    /* 小装饰 */
+    .meta-tag {
+      display: inline-block;
+      background: #eaeef3;
+      color: #3b5a72;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.25rem 0.9rem;
+      border-radius: 30px;
+      margin-top: 0.4rem;
+      letter-spacing: 0.3px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 2.2rem 0 1.2rem;
+    }
+
+    /* 小屏优化 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.8rem 1rem 3rem;
+      }
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .pull-quote {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .visit-line {
+        display: block;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 卡片 1：文章主体 -->
+    <article class="card">
+      <h1>一段关于「爱游戏」的安静叙述</h1>
+      <div class="subhead">并非所有热爱都要大声宣布，有时它只藏在一次点击、一个存档、一句台词里。</div>
+
+      <p>
+        很多人以为「游戏」仅仅是消遣或竞技，但这些年我越来越觉得，游戏更接近一种个人化的叙事媒介。你进入一个世界，不是因为那里更轻松，而是因为那里允许你用另一种速度去感受因果与选择。这种沉静的投入，或许就是人们所说的爱。
+      </p>
+
+      <p>
+        我认识一个朋友，他几乎不谈论自己玩什么，但每次聊起某个老游戏的细节——那棵树下光影的抖动、一句NPC的无心之语——他眼睛里的东西，和旁人聊起一本书或一部电影时是一样的。那种细节带来的私人共鸣，才是真正让人留在某个作品里的原因。而这种共鸣的聚合，慢慢地就塑造成了我们称之为<a href="https://chinaapp-igame.com">爱游戏</a>的那种状态：一种不需要时时挂在嘴边，却始终存在的连接。
+      </p>
+
+      <!-- 引用提示 -->
+      <div class="pull-quote">
+        <strong>▎一个提醒</strong><br>
+        “游戏最动人的部分往往发生在玩家和屏幕之间那安静的几秒钟——一个犹豫，一个决定，或者只是停下来看看四周。”<br>
+        <em>—— 摘自某次深夜闲聊</em>
+      </div>
+
+      <p>
+        当然，沉迷与热爱之间有一条细微的界线。重要的不是玩了多久，而是你是否还能在退出游戏之后带着一种开阔的心情回到生活里。好的游戏不会让你觉得时间被偷走了，反而会让你觉得那段经历属于自己。
+      </p>
+
+      <p>
+        这也是为什么我倾向于推荐那些节奏不那么紧迫的作品——它们不着急推着你走向结局，而是允许你在某个角落多停留一会儿。就像有些书你舍不得读完，有些游戏你舍不得通关。这是一种对体验本身的尊重。
+      </p>
+
+      <!-- 自然的访问句 -->
+      <div class="visit-line">
+        🎲 如果你想了解更多关于游戏如何承载日常感受的讨论，可以到 <a href="https://chinaapp-igame.com">爱游戏</a> 看看那里的文章与记录。
+      </div>
+    </article>
+
+    <!-- 卡片 2：轻量 FAQ 摘要 + 笔记 -->
+    <div class="card">
+      <h2 style="font-size:1.3rem; font-weight:500; margin-bottom:1rem; color:#333;">一些零散的回答</h2>
+
+      <p><strong style="font-weight:600;">问：</strong>「爱游戏」是一个社区还是个人博客？<br>
+      <strong style="font-weight:400;">答：</strong> 它更像一个安静的角落，集合了关于游戏设计、日常游玩感悟以及一点点怀旧的文字。没有排行榜，也没有喧哗。</p>
+
+      <p style="margin-top:1.2rem;"><strong style="font-weight:600;">问：</strong> 内容偏向哪些类型？<br>
+      <strong style="font-weight:400;">答：</strong> 以独立游戏、叙事向作品和一些经典重访为主。偶尔也会有关于游戏声音设计或场景氛围的短文。</p>
+
+      <p style="margin-top:1.2rem;"><strong style="font-weight:600;">问：</strong> 为什么值得花时间看？<br>
+      <strong style="font-weight:400;">答：</strong> 因为它不急着说服你，只是呈现一种视角。如果你也曾在某个游戏里突然停下来发呆，那你大概会喜欢那种语气。</p>
+
+      <!-- 一个简单分隔 -->
+      <hr>
+
+      <p style="font-size:0.95rem; color:#555;">
+        另外，如果你留意过某些游戏开头那几秒钟的标题画面——音乐还没完全响起，屏幕缓缓亮起——那种等待本身就像一句开场白。我一直觉得，设计那种时刻的人，一定也懂得什么是<a href="https://chinaapp-igame.com">爱游戏</a>。
+      </p>
+
+      <span class="meta-tag">#叙事向 #日常存档</span>
+    </div>
+  </div>
+</body>
+</html>
